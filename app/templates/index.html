@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BarberFlow | Estilo e precisão</title>
+
+    <meta
+        name="description"
+        content="BarberFlow — encontre seu estilo, conheça nossos profissionais e agende seu próximo corte."
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="/" class="logo">
+            BARBER<span>FLOW</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#inicio">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#profissionais">Profissionais</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+
+        <a href="#servicos" class="nav-button">
+            Agendar horário
+        </a>
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    ESTILO • PERSONALIDADE • PRECISÃO
+                </span>
+
+                <h1>
+                    Seu estilo.<br>
+                    <span>Seu momento.</span>
+                </h1>
+
+                <p>
+                    Cuidar da aparência é mais do que estética.
+                    É confiança, identidade e personalidade.
+                    Encontre seu profissional e transforme seu visual.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#servicos" class="button button-primary">
+                        Conheça nossos serviços
+                    </a>
+
+                    <a href="#sobre" class="button button-outline">
+                        Descubra a BarberFlow
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="hero-decoration">
+                <span>BF</span>
+            </div>
+
+            <div class="hero-bottom">
+                <span>BARBEARIA • DESDE 2026</span>
+                <span>RECIFE — PE</span>
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+        <section class="services section-container" id="servicos">
+
+            <div class="section-heading">
+                <span class="eyebrow">O QUE OFERECEMOS</span>
+
+                <h2>
+                    Nossos <span>serviços</span>
+                </h2>
+
+                <p>
+                    Precisão em cada detalhe. Escolha o cuidado que combina com você.
+                </p>
+            </div>
+
+
+            <div class="services-grid">
+
+                <article class="service-card">
+
+                    <div class="service-number">01</div>
+
+                    <div class="service-icon">✂</div>
+
+                    <h3>Corte de cabelo</h3>
+
+                    <p>
+                        Cortes clássicos ou modernos, respeitando
+                        seu estilo e personalidade.
+                    </p>
+
+                    <span class="service-price">
+                        A partir de R$ 35
+                    </span>
+
+                </article>
+
+
+                <article class="service-card">
+
+                    <div class="service-number">02</div>
+
+                    <div class="service-icon">⌁</div>
+
+                    <h3>Barba</h3>
+
+                    <p>
+                        Alinhamento, acabamento e cuidado para
+                        valorizar seu visual.
+                    </p>
+
+                    <span class="service-price">
+                        A partir de R$ 25
+                    </span>
+
+                </article>
+
+
+                <article class="service-card">
+
+                    <div class="service-number">03</div>
+
+                    <div class="service-icon">✧</div>
+
+                    <h3>Corte + Barba</h3>
+
+                    <p>
+                        Uma experiência completa para renovar
+                        seu estilo e elevar sua autoestima.
+                    </p>
+
+                    <span class="service-price">
+                        A partir de R$ 55
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFESSIONALS -->
+        <section class="professionals" id="profissionais">
+
+            <div class="section-container professionals-content">
+
+                <div class="section-heading">
+                    <span class="eyebrow">QUEM CUIDA DO SEU ESTILO</span>
+
+                    <h2>
+                        Conheça nossos <span>profissionais.</span>
+                    </h2>
+
+                    <p>
+                        Talento, experiência e atenção aos detalhes.
+                        Encontre o profissional ideal para você.
+                    </p>
+
+                    <a href="#sobre" class="button button-primary">
+                        Conheça nossa equipe
+                    </a>
+                </div>
+
+                <div class="professional-placeholder">
+                    <div class="professional-frame">
+                        <span>BF</span>
+                </div>
+
+                <p>PROFISSIONAL • BARBERFLOW</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section class="about section-container" id="sobre">
+
+            <div class="about-content">
+
+                <span class="eyebrow">NOSSA ESSÊNCIA</span>
+
+                <h2>
+                    Mais do que um corte.<br>
+                    <span>Uma identidade.</span>
+                </h2>
+
+                <p>
+                    Acreditamos que cada pessoa possui seu próprio estilo.
+                    Nosso propósito é oferecer qualidade, cuidado e uma
+                    experiência que vai além da cadeira de barbeiro.
+                </p>
+
+                <p>
+                    Um ambiente onde técnica, personalidade e confiança
+                    se encontram.
+                </p>
+
+            </div>
+
+            <div class="about-highlight">
+                <span>01</span>
+                <p>
+                    Seu estilo não precisa seguir tendências.
+                    Ele precisa representar você.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-top">
+
+            <a href="/" class="logo">
+                BARBER<span>FLOW</span>
+            </a>
+
+            <p>Estilo, precisão e personalidade.</p>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 BarberFlow. Todos os direitos reservados.</p>
+            <p>Desenvolvido com dedicação.</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nossos profissionais | BarberFlow</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="/" class="logo">
+            BARBER<span>FLOW</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="/">Início</a>
+            <a href="/#servicos">Serviços</a>
+            <a href="/profissionais/">Profissionais</a>
+            <a href="/#sobre">Sobre</a>
+        </nav>
+
+        <a href="/#servicos" class="nav-button">
+            Agendar horário
+        </a>
+    </header>
+
+    <main>
+
+        <section class="professionals-page">
+
+            <div class="professionals-header">
+
+                <span class="eyebrow">
+                    NOSSA EQUIPE
+                </span>
+
+                <h1>
+                    Conheça nossos <span>profissionais.</span>
+                </h1>
+
+                <p>
+                    Profissionais preparados para transformar
+                    seu visual e oferecer uma experiência única.
+                </p>
+
+            </div>
+
+            <div class="professionals-grid">
+
+                {% for professional in professionals %}
+
+                <article class="professional-card">
+
+                    <div class="professional-image">
+
+                        {% if professional.photo %}
+                            <img
+                                src="{{ url_for('static', filename=professional.photo) }}"
+                                alt="Foto de {{ professional.name }}"
+                            >
+                        {% else %}
+                            <div class="professional-no-image">
+                                {{ professional.name[0] }}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="professional-info">
+
+                        <span class="professional-specialty">
+                            {{ professional.specialty }}
+                        </span>
+
+                        <h2>{{ professional.name }}</h2>
+
+                        <p>{{ professional.description }}</p>
+
+                        <a href="#" class="professional-link">
+                            Conhecer profissional →
+                        </a>
+
+                    </div>
+
+                </article>
+
+                {% else %}
+
+                <p class="professionals-empty">
+                    Nenhum profissional cadastrado no momento.
+                </p>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="footer-top">
+
+            <a href="/" class="logo">
+                BARBER<span>FLOW</span>
+            </a>
+
+            <p>Estilo, precisão e personalidade.</p>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2026 BarberFlow. Todos os direitos reservados.
+            </p>
+
+            <p>Desenvolvido com dedicação.</p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
