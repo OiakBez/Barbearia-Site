@@ -47,6 +47,12 @@ class User(UserMixin, db.Model):
         default=lambda: datetime.now(timezone.utc)
     )
 
+    professional = db.relationship(
+        "Professional",
+        back_populates="user",
+        uselist=False
+    )
+
     def __repr__(self):
         return f"<User {self.email}>"
 
