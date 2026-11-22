@@ -53,6 +53,12 @@ class User(UserMixin, db.Model):
         uselist=False
     )
 
+    appointments = db.relationship(
+        "Appointment",
+        back_populates="customer",
+        foreign_keys="Appointment.customer_id"
+    )
+
     def __repr__(self):
         return f"<User {self.email}>"
 

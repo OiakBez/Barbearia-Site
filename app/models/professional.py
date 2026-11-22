@@ -43,5 +43,10 @@ class Professional(db.Model):
         back_populates="professional"
     )
 
+    appointments = db.relationship(
+        "Appointment",
+        back_populates="professional"
+    )
+
     def __repr__(self):
         return f"<Professional user_id={self.user_id}>"

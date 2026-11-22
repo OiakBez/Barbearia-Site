@@ -42,5 +42,10 @@ class Service(db.Model):
         default=lambda: datetime.now(timezone.utc)
     )
 
+    appointments = db.relationship(
+        "Appointment",
+        back_populates="service"
+    )
+
     def __repr__(self):
         return f"<Service {self.name}>"
