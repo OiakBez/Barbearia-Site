@@ -4,6 +4,7 @@ from flask import Flask
 from dotenv import load_dotenv
 
 from app.extensions import db, migrate, login_manager
+from app.models import User, Professional, Service, Appointment
 from app.routes.main import main
 from app.routes.professionals import professionals
 
@@ -21,6 +22,13 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        try:
+            return db.session.get(User, int(user_id))
+        except (ValueError, TypeError):
+            return None
 
     app.register_blueprint(main)
     app.register_blueprint(professionals)
