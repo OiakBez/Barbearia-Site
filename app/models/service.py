@@ -6,7 +6,7 @@ class Service(db.Model):
     __tablename__ = "services"
 
     id = db.Column(
-        db.integer,
+        db.Integer,
         primary_key=True
     )
 
