@@ -7,6 +7,7 @@ from app.extensions import db, migrate, login_manager
 from app.models import User, Professional, Service, Appointment
 from app.routes.main import main
 from app.routes.professionals import professionals
+from app.routes.auth import auth
 
 load_dotenv()
 
@@ -23,6 +24,8 @@ def create_app():
     migrate.init_app(app, db)
     login_manager.init_app(app)
 
+    login_manager.login_view = "auth.login"
+
     @login_manager.user_loader
     def load_user(user_id):
         try:
@@ -32,5 +35,6 @@ def create_app():
 
     app.register_blueprint(main)
     app.register_blueprint(professionals)
+    app.register_blueprint(auth)
 
     return app
