@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 
 from app.extensions import db
 from flask_login import UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class User(UserMixin, db.Model):
@@ -58,6 +59,12 @@ class User(UserMixin, db.Model):
         back_populates="customer",
         foreign_keys="Appointment.customer_id"
     )
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
         return f"<User {self.email}>"
