@@ -9,20 +9,24 @@
 </head>
 <body>
 
-    <main>
-        <h1>Entrar</h1>
-        <p>Acesse sua conta.</p>
+    <main class="auth-container">
+
+        <header class="auth-header">
+            <div class="auth-logo">BARBEARIA</div>
+            <h1>Bem-vindo de volta</h1>
+            <p>Entre na sua conta para continuar.</p>
+        </header>
 
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% for category, message in messages %}
-                <p class="message {{ category }}">{{ message }}</p>
+                <div class="auth-message {{ category }}">{{ message }}</div>
             {% endfor %}
         {% endwith %}
 
-        <form method="POST">
+        <form method="POST" class="auth-form">
             {{ form.hidden_tag() }}
 
-            <div>
+            <div class="auth-field">
                 {{ form.email.label }}
                 {{ form.email(placeholder="seu@email.com") }}
                 {% for error in form.email.errors %}
@@ -30,7 +34,7 @@
                 {% endfor %}
             </div>
 
-            <div>
+            <div class="auth-field">
                 {{ form.password.label }}
                 {{ form.password(placeholder="Sua senha") }}
                 {% for error in form.password.errors %}
@@ -38,13 +42,14 @@
                 {% endfor %}
             </div>
 
-            {{ form.submit() }}
+            {{ form.submit(class="auth-submit") }}
         </form>
 
-        <p>Ainda não possui uma conta?
+        <footer class="auth-footer">
+            Ainda não possui uma conta?
             <a href="{{ url_for('auth.register') }}">Cadastre-se</a>
-        </p>
-    </main>
+        </footer>
 
+    </main>
 </body>
 </html>
