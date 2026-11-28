@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar conta | Barbearia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <main>
+        <h1>Criar conta</h1>
+        <p>Cadastre-se para utilizar nossos serviços.</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <p class="message {{ category }}">{{ message }}</p>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div>
+                {{ form.name.label }}
+                {{ form.name(placeholder="Seu nome completo") }}
+                {% for error in form.name.errors %}
+                    <small>{{ error }}</small>
+                {% endfor %}
+            </div>
+
+            <div>
+                {{ form.email.label }}
+                {{ form.email(placeholder="seu@email.com") }}
+                {% for error in form.email.errors %}
+                    <small>{{ error }}</small>
+                {% endfor %}
+            </div>
+
+            <div>
+                {{ form.password.label }}
+                {{ form.password(placeholder="Mínimo de 8 caracteres") }}
+                {% for error in form.password.errors %}
+                    <small>{{ error }}</small>
+                {% endfor %}
+            </div>
+
+            <div>
+                {{ form.confirm_password.label }}
+                {{ form.confirm_password(placeholder="Repita sua senha") }}
+                {% for error in form.confirm_password.errors %}
+                    <small>{{ error }}</small>
+                {% endfor %}
+            </div>
+
+            {{ form.submit() }}
+        </form>
+
+        <p>Já possui uma conta?
+            <a href="{{ url_for('auth.login') }}">Entrar</a>
+        </p>
+    </main>
+
+</body>
+</html>
